@@ -1,0 +1,12 @@
+@use "./abstracts/index" as *;
+
+.main {
+    color: $neutral;
+    font-weight: $fw-bold;
+    width: 100%;
+}
+
+.wrapper {
+    width: 90%;
+    margin-inline: auto;
+}

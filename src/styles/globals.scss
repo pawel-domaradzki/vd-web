@@ -1,0 +1,23 @@
+@use "./base/reset" as *;
+@use "./abstracts/index" as *;
+
+body {
+  background-color: $dark-blue;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+/*tablet*/
+@media (min-width: $screen-sm) {
+}
+
+/*desktop*/
+
+@media (min-width: $screen-lg) {
+  .container {
+    display: flex;
+  }
+}

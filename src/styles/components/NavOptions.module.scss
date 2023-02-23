@@ -1,0 +1,39 @@
+@use "../abstracts/index" as *;
+
+.menuOptions {
+    display: flex;
+    justify-content: space-between;
+    a {
+        .icon {
+            path {
+                fill: $grey-blue;
+            }
+        }
+    }
+
+    a:hover {
+        cursor: pointer;
+        .icon {
+            path {
+                fill: $red;
+            }
+        }
+    }
+
+    .icon.active {
+        path {
+            fill: $neutral;
+            &:hover {
+                fill: $red;
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-lg) {
+    .menuOptions {
+        margin-top: $size-600;
+        flex-direction: column;
+        gap: $size-400;
+    }
+}

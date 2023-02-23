@@ -1,0 +1,71 @@
+@use "../abstracts/index" as *;
+
+.searchBox {
+    display: flex;
+    margin-inline: auto;
+    background-color: none;
+    width: 100%;
+    padding: 0 $pd-2;
+    color: $semi-dark-blue;
+    align-items: center;
+    // border: 1px solid pink;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    .searchBtn {
+        cursor: pointer;
+        background-color: $dark-blue;
+        border: none;
+        .icon {
+            color: $neutral;
+            height: $size-600;
+            padding: $pd-2;
+            &:hover {
+                color: $red;
+            }
+        }
+    }
+    input {
+        color: $neutral;
+        background-color: $dark-blue;
+        border: none;
+        letter-spacing: 1px;
+        font-weight: $fw-regular;
+        display: flex;
+        flex-grow: 1;
+        padding: 10px 0;
+
+        &:focus {
+            outline: none;
+            caret-color: $red;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $grey-blue;
+        }
+    }
+}
+
+@media (min-width: $screen-xsm) {
+    .searchBox {
+        padding: 0 $pd-3;
+        margin-right: 10%;
+        width: 90%;
+        .searchBtn {
+            .icon {
+                height: $size-700;
+                padding: $pd-3;
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-sm) {
+}
+
+@media (min-width: $screen-md) {
+}
+
+@media (min-width: $screen-lg) {
+    .searchBox {
+        margin-top: $size-500;
+    }
+}
