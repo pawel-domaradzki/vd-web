@@ -10,17 +10,16 @@ import Link from "next/link";
 const NavOptions: FC = () => {
   return (
     <ul role="list" className={styles.menuOptions}>
-      <Link href="/">
+      <Link href="?genre=all">
         <Home className={classnames(styles.icon, styles.active)} />
       </Link>
-      <Link href="/">
-        {" "}
+      <Link href="?genre=movies">
         <Movies className={styles.icon} />
       </Link>
-      <Link href="/">
+      <Link href="?genre=tv">
         <TvSeries className={styles.icon} />
       </Link>
-      <Link href="/">
+      <Link href="?genre=bookmark">
         <Bookmark className={styles.icon} />
       </Link>
     </ul>

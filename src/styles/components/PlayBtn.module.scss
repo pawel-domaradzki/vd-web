@@ -1,0 +1,56 @@
+@use "../abstracts/index" as *;
+
+.playBtn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 100vmax;
+    border: none;
+    background-color: rgba($color: #fff, $alpha: 0.35);
+    opacity: 0;
+    width: 92px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -46px;
+    margin-top: -20px;
+    justify-content: center;
+    span {
+        font-weight: $fw-regular;
+        padding-right: 5px;
+        padding-left: 8px;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: rgba($color: #fff, $alpha: 0.45);
+    }
+}
+
+@media (min-width: $screen-2xl) {
+    .playBtn {
+        width: 102px;
+        height: 46px;
+        margin-left: -51px;
+        margin-top: -23px;
+    }
+}
+
+@media (min-width: $screen-3xl) {
+    .playBtn {
+        width: 120px;
+        height: 50px;
+        margin-left: -60px;
+        margin-top: -25px;
+        justify-content: space-evenly;
+        span {
+            font-weight: $fw-regular;
+            padding: 0;
+        }
+
+        .icon {
+            scale: 1.4;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+@use "../abstracts/index" as *;
+
+.scrollbarHide {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* Safari and Chrome */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.sliderContainer {
+    position: relative;
+    margin-left: $size-300;
+
+    .slider {
+        cursor: pointer;
+        display: flex;
+        white-space: nowrap;
+        overflow-x: scroll;
+
+        .title {
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+                transition: transform 1s;
+            }
+            &:last-child {
+                padding-right: $size-400;
+            }
+        }
+    }
+
+    .fade {
+        z-index: 999;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: $size-900;
+        background: linear-gradient(90deg, rgba(2, 0, 36, 0) 36%, $dark-blue 100%);
+    }
+}
+
+.sliderContainer.active {
+    .slider {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+    }
+}
+
+@media (min-width: $screen-sm) {
+    .sliderContainer {
+        margin-left: $size-400;
+    }
+}
+
+@media (min-width: $screen-md) {
+    .sliderContainer {
+        margin-left: $size-500;
+    }
+}
+
+@media (min-width: $screen-lg) {
+    .sliderContainer {
+        margin-left: 0;
+    }
+}

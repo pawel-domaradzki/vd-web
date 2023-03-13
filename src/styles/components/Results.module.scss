@@ -1,0 +1,46 @@
+@use "../abstracts/index" as *;
+
+.resultsContainer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: $size-300;
+    justify-content: space-between;
+    padding-inline: $size-300;
+}
+
+@media (min-width: $screen-xsm) {
+    .resultsContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: $screen-sm) {
+    .resultsContainer {
+        padding-inline: $size-400;
+    }
+}
+
+@media (min-width: $screen-md) {
+    .resultsContainer {
+        padding-inline: $size-500;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: $screen-lg) {
+    .resultsContainer {
+        grid-template-columns: repeat(4, 1fr);
+        gap: $size-400;
+        padding-inline: 0;
+        padding-right: $size-300;
+    }
+}
+
+@media (min-width: $screen-xl) {
+    .resultsContainer {
+        grid-template-columns: repeat(4, 1fr);
+        gap: $size-500;
+        padding-right: $size-500;
+    }
+}

@@ -3,14 +3,15 @@
 .header {
     color: $neutral;
     background-color: $semi-dark-blue;
+    position: sticky;
 
     .primaryNavigation {
-        padding: 0 $pd-4;
         margin-inline: auto;
         display: grid;
         grid-template-columns: 1fr 2fr 1fr;
         grid-auto-rows: minmax($size-700, 10vh);
         align-items: center;
+        padding-inline: $size-300;
 
         .account {
             display: flex;
@@ -31,7 +32,6 @@
 @media (min-width: $screen-xsm) {
     .header {
         .primaryNavigation {
-            padding: 0 $pd-5;
             grid-template-columns: 1fr 1.8fr 1fr;
         }
     }
@@ -40,7 +40,6 @@
 @media (min-width: $screen-sm) {
     .header {
         .primaryNavigation {
-            padding: 0 $pd-5;
             grid-template-columns: 1fr 1.2fr 1fr;
         }
     }
@@ -49,33 +48,78 @@
 @media (min-width: $screen-md) {
     .header {
         .primaryNavigation {
-            padding: 0 $pd-5;
             grid-template-columns: 1fr 1fr 1fr;
+            padding-inline: $size-500;
         }
     }
 }
 
 @media (min-width: $screen-lg) {
-    .header {
-        margin-left: $size-500;
-        width: $size-900;
-        border-radius: $size-400;
-        height: 94vh;
+    .headerWrapper {
         display: flex;
-        margin-top: auto;
-        margin-bottom: auto;
-        .primaryNavigation {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            margin-bottom: 20px;
+        flex-grow: 1;
+        position: relative;
+        margin-inline: auto;
 
-            .account {
-                .userIcon {
-                    height: $size-600;
+        .header {
+            width: 100%;
+            z-index: 999;
+            min-width: $size-800;
+            width: 70%;
+            margin-inline: auto;
+            border-radius: $size-400;
+            height: 94vh;
+            min-height: 450px;
+            display: flex;
+            position: sticky;
+            top: 3vh;
+
+            .primaryNavigation {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                svg {
+                    scale: 0.8;
                 }
 
-                margin-top: auto;
+                .account {
+                    .userIcon {
+                        height: $size-600;
+                    }
+
+                    margin-top: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-xl) {
+    .headerWrapper {
+        .header {
+            .primaryNavigation {
+                .logo {
+                    scale: 1.2;
+                }
+                svg {
+                    scale: 1;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-2xl) {
+    .headerWrapper {
+        .header {
+            .primaryNavigation {
+                margin-top: 40px;
+                margin-bottom: 40px;
+                svg {
+                    scale: 1.5;
+                }
             }
         }
     }

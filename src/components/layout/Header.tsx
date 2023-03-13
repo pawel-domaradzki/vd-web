@@ -5,26 +5,28 @@ import styles from "../../styles/components/Header.module.scss";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 const Header = () => (
-  <header className={styles.header}>
-    <nav className={styles.primaryNavigation}>
-      <Link href="/">
-        <Image
-          className={styles.logo}
-          src="/logo.svg"
-          alt="Logo"
-          width={33}
-          height={27}
-          priority
-        />
-      </Link>
+  <div className={styles.headerWrapper}>
+    <header className={styles.header}>
+      <nav className={styles.primaryNavigation}>
+        <Link href="/">
+          <Image
+            className={styles.logo}
+            src="/logo.svg"
+            alt="Logo"
+            width={33}
+            height={27}
+            priority
+          />
+        </Link>
 
-      <Navigation />
+        <Navigation />
 
-      <div className={styles.account}>
-        <UserCircleIcon className={styles.userIcon} />
-      </div>
-    </nav>
-  </header>
+        <div className={styles.account}>
+          <UserCircleIcon className={styles.userIcon} />
+        </div>
+      </nav>
+    </header>
+  </div>
 );
 
 export default Header;

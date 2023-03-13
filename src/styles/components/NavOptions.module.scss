@@ -37,3 +37,19 @@
         gap: $size-400;
     }
 }
+
+@media (min-width: $screen-xl) {
+    .menuOptions {
+        margin-top: $size-600;
+        flex-direction: column;
+        gap: $size-500;
+    }
+}
+
+@media (min-width: $screen-2xl) {
+    .menuOptions {
+        margin-top: $size-700;
+        flex-direction: column;
+        gap: $size-700;
+    }
+}
