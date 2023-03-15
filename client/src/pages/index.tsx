@@ -20,14 +20,14 @@ export default function Home({ results, trendingToday, genre }: ResponseProps) {
     setSearch(event.target.value);
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     const searchRes = fetch(
       searchQuery("2670a71658ecbaa1cb43a4ab3fb9ad35", search)
     ).then((res) => res.json());
 
     setSearchResult(searchRes.results);
   }, [search]);
-
+ */
   console.log(searchResult);
   return (
     <>
@@ -44,11 +44,7 @@ export default function Home({ results, trendingToday, genre }: ResponseProps) {
           <SearchBox handleChange={handleChange} />
           {trendingToday && !genre ? <Slider results={trendingToday} /> : <></>}
           <div className={styles.resultsContainer}></div>
-          {searchResult.results ? (
-            <Results results={searchResult.results} />
-          ) : (
-            <Results results={results} />
-          )}
+          {<Results results={results} />}
         </main>
       </div>
     </>
