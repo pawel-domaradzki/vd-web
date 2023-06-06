@@ -1,5 +1,9 @@
 @use "../abstracts/index" as *;
 
+.heading {
+    margin-left: $size-300;
+}
+
 .resultsContainer {
     display: grid;
     width: 100%;
@@ -16,12 +20,18 @@
 }
 
 @media (min-width: $screen-sm) {
+    .heading {
+        margin-left: $size-400;
+    }
     .resultsContainer {
         padding-inline: $size-400;
     }
 }
 
 @media (min-width: $screen-md) {
+    .heading {
+        margin-left: $size-500;
+    }
     .resultsContainer {
         padding-inline: $size-500;
         grid-template-columns: 1fr 1fr 1fr;
@@ -30,16 +40,18 @@
 
 @media (min-width: $screen-lg) {
     .resultsContainer {
-        grid-template-columns: repeat(4, 1fr);
         gap: $size-400;
-        padding-inline: 0;
-        padding-right: $size-300;
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (min-width: $screen-xl) {
+    .heading {
+        margin-left: 0;
+    }
     .resultsContainer {
         grid-template-columns: repeat(4, 1fr);
+        padding-inline: 0;
         gap: $size-500;
         padding-right: $size-500;
     }

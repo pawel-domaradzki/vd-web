@@ -3,7 +3,9 @@ import Thumbnail from "./Thumbnail";
 import classnames from "classnames";
 import { useRef, useState, MouseEvent } from "react";
 
-const Slider = ({ results }) => {
+import { Results } from "../utils/types";
+
+const Slider = ({ results }: Results) => {
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState<number>(0);
   const [scrollLeft, setscrollLeft] = useState<number>(0);
@@ -35,13 +37,11 @@ const Slider = ({ results }) => {
       sliderRef.current.scrollLeft = scrollLeft - walk;
       console.log(walk);
     }
-
-    console.log("handleOnMouseMove");
   };
 
   return (
     <>
-      <h1>Trending</h1>
+      <h1 className={styles.heading}>Trending</h1>
       <div
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}

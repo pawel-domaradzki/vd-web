@@ -12,9 +12,11 @@
     justify-content: center;
     background-color: $red;
     color: white;
+    margin: 10px 0px;
 
     &:hover,
     &:focus-visible {
-        opacity: 0.9;
+        background-color: white;
+        color: $semi-dark-blue;
     }
 }

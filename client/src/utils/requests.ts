@@ -1,6 +1,14 @@
 const API_KEY = process.env.API_KEY;
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const requests = {
+type Requests = {
+  [key: string]: {
+    title: string;
+    url: string;
+  };
+};
+
+export const requests: Requests = {
   fetchTrending: {
     title: "Trending",
     url: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
@@ -27,6 +35,17 @@ export const requests = {
   },
 };
 
-export const searchQuery = (key,query) => {
-  return `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`;
+export const getQueryString = (query: string | string[]) => {
+  if (Array.isArray(query)) {
+    return query[0];
+  }
+  return query;
+};
+
+export const searchQuery = (query: string) => {
+  if (query) {
+    return `${API_BASE_URL}/api/search?query=${query}`;
+  }
+
+  return query;
 };

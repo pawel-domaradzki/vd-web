@@ -30,13 +30,6 @@
     }
 }
 
-@media (min-width: $screen-lg) {
-    .menuOptions {
-        margin-top: $size-600;
-        flex-direction: column;
-        gap: $size-400;
-    }
-}
 
 @media (min-width: $screen-xl) {
     .menuOptions {

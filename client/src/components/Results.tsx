@@ -1,19 +1,18 @@
 import Thumbnail from "./Thumbnail";
 import styles from "../styles/components/Results.module.scss";
-import { TrendingResponse } from "../utils/types.ts";
+import { Results } from "../utils/types";
 
-const Results = ({ results }: result) => {
+const Results = ({ results, title}: Results) => {
   return (
-    <div className={styles.resultsContainer}>
-      {results.map((result) => (
-        <Thumbnail key={result.id} result={result} />
-      ))}
-    </div>
+    <>
+      <h1 className={styles.heading}>{title}</h1>
+      <div className={styles.resultsContainer}>
+        {results.map((result) => (
+          <Thumbnail key={result.id} result={result} />
+        ))}
+      </div>
+    </>
   );
 };
 
 export default Results;
-
-interface result {
-  results: [TrendingResponse];
-}

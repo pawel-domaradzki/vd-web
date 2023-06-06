@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useRouter } from "next/router";
 import classnames from "classnames";
 import styles from "../../styles/components/NavOptions.module.scss";
 import Movies from "../../assets/icon-nav-movies.svg";
@@ -8,19 +9,38 @@ import Bookmark from "../../assets/icon-nav-bookmark.svg";
 import Link from "next/link";
 
 const NavOptions: FC = () => {
+  const router = useRouter();
+
+  const { pathname } = router;
+  const { genre } = router.query;
+
   return (
     <ul role="list" className={styles.menuOptions}>
-      <Link href="?genre=all">
-        <Home className={classnames(styles.icon, styles.active)} />
+      <Link href="/?genre=all">
+        <Home
+          className={classnames(styles.icon, genre === "all" && styles.active)}
+        />
       </Link>
-      <Link href="?genre=movies">
-        <Movies className={styles.icon} />
+      <Link href="/?genre=movies">
+        <Movies
+          className={classnames(
+            styles.icon,
+            genre === "movies" && styles.active
+          )}
+        />
       </Link>
-      <Link href="?genre=tv">
-        <TvSeries className={styles.icon} />
+      <Link href="/?genre=tv">
+        <TvSeries
+          className={classnames(styles.icon, genre === "tv" && styles.active)}
+        />
       </Link>
-      <Link href="?genre=bookmark">
-        <Bookmark className={styles.icon} />
+      <Link href="bookmarked">
+        <Bookmark
+          className={classnames(
+            styles.icon,
+            pathname === "/bookmarked" && styles.active
+          )}
+        />
       </Link>
     </ul>
   );

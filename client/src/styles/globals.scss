@@ -5,14 +5,37 @@ body {
   background-color: $dark-blue;
 }
 
-/*tablet*/
-@media (min-width: $screen-sm) {
+h2 {
+  font-size: $fs-heading-xxs;
 }
 
-/*desktop*/
+@media (min-width: $screen-md) {
+  h1 {
+    font-size: $fs-heading-m;
+    font-weight: $fw-regular;
+  }
+}
 
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-xl) {
   .container {
     display: flex;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: $screen-2xl) {
+  h2 {
+    font-size: $fs-heading-xs;
+  }
+}
+
+@media (min-width: $screen-3xl) {
+  h1 {
+    font-size: $fs-heading-l;
+    font-weight: $fw-regular;
+  }
+
+  h2 {
+    font-size: $fs-heading-m;
   }
 }

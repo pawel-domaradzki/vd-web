@@ -5,7 +5,7 @@
 
     .imageContainer {
         position: relative;
-        background-color: black;
+        background-color: $dark-blue;
         aspect-ratio: 6/4;
         border-radius: $size-300;
         .image {
@@ -62,7 +62,7 @@
 
     .imageContainer {
         position: relative;
-        background-color: black;
+        background-color: $semi-dark-blue;
         border-radius: $size-300;
         height: 100%;
         width: 100%;
@@ -87,8 +87,15 @@
         position: absolute;
         top: 70%;
         left: 10%;
+        width: 90%;
+        .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 90%;
+        }
         .description {
-            max-width: 95%;
+            max-width: 100%;
             min-width: 80%;
             color: white;
             font-weight: $fw-regular;
@@ -99,6 +106,7 @@
 
             .mediaType {
                 div {
+                    min-width: 52px;
                     display: flex;
 
                     align-items: center;
@@ -114,7 +122,6 @@
         }
     }
 }
-
 
 @media (min-width: $screen-md) {
     .sliderThumbnail {
@@ -143,5 +150,37 @@
     .sliderThumbnail {
         min-width: 650px;
         min-height: 318px;
+        .descriptionContainer {
+            .description {
+                font-size: $size-400;
+                .mediaType {
+                    div {
+                        display: flex;
+
+                        align-items: center;
+                        .icon {
+                            transform: scale(0.6);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .thumbnail {
+        .descriptionContainer {
+            .description {
+                font-size: $size-400;
+                .mediaType {
+                    div {
+                        display: flex;
+
+                        align-items: center;
+                        .icon {
+                            transform: scale(0.6);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

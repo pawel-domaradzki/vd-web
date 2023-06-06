@@ -1,58 +1,28 @@
-import Head from "next/head";
-import { Outfit } from "@next/font/google";
 import styles from "@/styles/Home.module.scss";
-import classnames from "classnames";
-import Header from "@/components/layout/Header";
 import SearchBox from "@/components/SearchBox";
 import Slider from "@/components/Slider";
 import Results from "@/components/Results";
-import { requests, searchQuery } from "@/utils/requests";
-import { Maybe, TrendingResponse } from "../utils/types.ts";
-import { useState, useEffect } from "react";
+import { requests, getQueryString } from "@/utils/requests";
+import { Maybe, ResultsResponse } from "@/utils/types";
 
-const outfit = Outfit({ subsets: ["latin"] });
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export default function Home({ results, trendingToday, genre }: ResponseProps) {
-  const [search, setSearch] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
-
-  const handleChange = (event) => {
-    setSearch(event.target.value);
-  };
-
-  /*   useEffect(() => {
-    const searchRes = fetch(
-      searchQuery("2670a71658ecbaa1cb43a4ab3fb9ad35", search)
-    ).then((res) => res.json());
-
-    setSearchResult(searchRes.results);
-  }, [search]);
- */
-  console.log(searchResult);
   return (
     <>
-      <Head>
-        <title>vd-web</title>
-        <meta name="description" content="VD Web your entertainment web-app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SearchBox />
 
-      <div className="container">
-        <Header />
-        <main className={classnames(styles.main, outfit.className)}>
-          <SearchBox handleChange={handleChange} />
-          {trendingToday && !genre ? <Slider results={trendingToday} /> : <></>}
-          <div className={styles.resultsContainer}></div>
-          {<Results results={results} />}
-        </main>
-      </div>
+      {trendingToday && !genre ? <Slider results={trendingToday} /> : <></>}
+
+      {results && <Results results={results} title={`Recommended for you`} />}
     </>
   );
 }
 
-export async function getServerSideProps(context) {
-  const genre = context.query.genre;
+export const getServerSideProps: GetServerSideProps<ResponseProps> = async (
+  context: GetServerSidePropsContext
+) => {
+  const genre = getQueryString(context.query.genre!) as string;
 
   const trending = await fetch(
     `https://api.themoviedb.org/3${
@@ -71,10 +41,10 @@ export async function getServerSideProps(context) {
       genre: genre || null,
     },
   };
-}
+};
 
 interface ResponseProps {
-  results: [TrendingResponse];
-  trendingToday: [TrendingResponse];
+  results: ResultsResponse[];
+  trendingToday: ResultsResponse[];
   genre: Maybe<string>;
 }

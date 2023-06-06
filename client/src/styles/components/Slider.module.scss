@@ -1,16 +1,17 @@
 @use "../abstracts/index" as *;
 
 .scrollbarHide {
-    /* IE and Edge */
     -ms-overflow-style: none;
 
-    /* Firefox */
     scrollbar-width: none;
 
-    /* Safari and Chrome */
     &::-webkit-scrollbar {
         display: none;
     }
+}
+
+.heading {
+    margin-left: $size-300;
 }
 
 .sliderContainer {
@@ -54,18 +55,27 @@
 }
 
 @media (min-width: $screen-sm) {
+    .heading {
+        margin-left: $size-400;
+    }
     .sliderContainer {
         margin-left: $size-400;
     }
 }
 
 @media (min-width: $screen-md) {
+    .heading {
+        margin-left: $size-500;
+    }
     .sliderContainer {
         margin-left: $size-500;
     }
 }
 
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-xl) {
+    .heading {
+        margin-left: 0;
+    }
     .sliderContainer {
         margin-left: 0;
     }

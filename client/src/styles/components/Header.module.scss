@@ -25,6 +25,11 @@
                     color: $red;
                 }
             }
+
+            .userIcon.active {
+                color: $green;
+                height: $size-600;
+            }
         }
     }
 }
@@ -54,7 +59,7 @@
     }
 }
 
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-xl) {
     .headerWrapper {
         display: flex;
         flex-grow: 1;

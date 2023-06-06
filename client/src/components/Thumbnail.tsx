@@ -5,9 +5,10 @@ import Movie from "../assets/icon-nav-movies.svg";
 import PlayBtn from "./PlayBtn";
 import Bookmark from "./Bookmark";
 import { FC } from "react";
+import { ResultsResponse } from "@/utils/types";
 
 interface ThumbnailProps {
-  result: any;
+  result: ResultsResponse;
   isSliderItem?: boolean;
 }
 
@@ -37,13 +38,16 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
     descriptionContainer,
   } = styles;
 
-  const releaseFullYear = new Date(
-    first_air_date || release_date
-  ).getFullYear();
+  const releaseFullYear = () => {
+    const releaseDate = first_air_date || release_date;
 
-  const fullSrcUrl = `${BASE_URL}${backdrop_path || poster_path || ''}`
-   
- 
+    if (typeof releaseDate === "string") {
+      return new Date(releaseDate).getFullYear();
+    }
+    return "unknown date";
+  };
+
+  const fullSrcUrl = `${BASE_URL}${backdrop_path || poster_path || ""}`;
 
   const thumbnailVariant = isSliderItem ? sliderThumbnail : thumbnail;
   return (
@@ -56,12 +60,12 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
           height={174}
           className={image}
         />
-        <Bookmark />
-        <PlayBtn />
+        <Bookmark result={result} />
+        <PlayBtn onClick={() => console.log(title || name || original_name)} />
       </div>
       <div className={descriptionContainer}>
         <div className={description}>
-          <div>{releaseFullYear}</div>
+          <div>{releaseFullYear()}</div>
           <>&#8226;</>
           <div className={mediaType}>
             {media_type === "movie" ? (
@@ -79,7 +83,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
           <>&#8226;</>
           <div>{adult ? "+18" : "PG"} </div>
         </div>
-        <h1>{title || name || original_name}</h1>
+        <h2 className={styles.title}>{title || name || original_name}</h2>
       </div>
     </div>
   );
