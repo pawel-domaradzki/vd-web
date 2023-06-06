@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import { RouteHandler } from "../types/shared.js";
+import User from "../models/User";
+import { RouteHandler } from "../types/shared";
 
 export const getUser: RouteHandler = async (req, res) => {
   try {

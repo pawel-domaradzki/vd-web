@@ -16,6 +16,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
 
   const {
+    id,
     backdrop_path,
     poster_path,
     first_air_date,
@@ -61,7 +62,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
           className={image}
         />
         <Bookmark result={result} />
-        <PlayBtn onClick={() => console.log(title || name || original_name)} />
+        <PlayBtn id={id} type={media_type} />
       </div>
       <div className={descriptionContainer}>
         <div className={description}>

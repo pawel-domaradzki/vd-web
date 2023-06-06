@@ -49,3 +49,14 @@ export const searchQuery = (query: string) => {
 
   return query;
 };
+
+export const getVideo = (id: string | number, type: string) => {
+  if (type === "movie") {
+    return `${API_BASE_URL}/api/videos?movieId=${id}`;
+  }
+
+  if (type === "tv") {
+    return `${API_BASE_URL}/api/videos?tvId=${id}`;
+  }
+  return null;
+};
