@@ -41,6 +41,7 @@ const Register = () => {
     onSubmitProps: FormikHelpers<RegisterValues>
   ) => {
     await register(values, onSubmitProps);
+    router.push("/sign-in");
   };
 
   return (

@@ -6,6 +6,7 @@ import PlayBtn from "./PlayBtn";
 import Bookmark from "./Bookmark";
 import { FC } from "react";
 import { ResultsResponse } from "@/utils/types";
+import { useRouter } from "next/router";
 
 interface ThumbnailProps {
   result: ResultsResponse;
@@ -14,6 +15,10 @@ interface ThumbnailProps {
 
 const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
+
+  const router = useRouter();
+
+  const { genre } = router.query;
 
   const {
     id,
@@ -69,7 +74,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
           <div>{releaseFullYear()}</div>
           <>&#8226;</>
           <div className={mediaType}>
-            {media_type === "movie" ? (
+            {media_type === "movie" || genre === "movies" ? (
               <div>
                 <Movie className={icon} />
                 Movie

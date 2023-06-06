@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
         <title>vd-web</title>
         <meta name="description" content="VD Web your entertainment web-app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.svg" />
       </Head>
       <div className="container">
         <Header />
