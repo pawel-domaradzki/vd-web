@@ -5,12 +5,18 @@ body {
   background-color: $dark-blue;
 }
 
+h1 {
+  font-size: $fs-heading-xs;
+  line-height: 1.5rem;
+}
+
 h2 {
   font-size: $fs-heading-xxs;
 }
 
 @media (min-width: $screen-md) {
   h1 {
+    line-height: 2rem;
     font-size: $fs-heading-m;
     font-weight: $fw-regular;
   }
@@ -24,17 +30,18 @@ h2 {
 }
 
 @media (min-width: $screen-2xl) {
+  h1 {
+    line-height: 2.4rem;
+    font-size: $fs-heading-l;
+    font-weight: $fw-regular;
+    margin-bottom: 5px;
+  }
   h2 {
-    font-size: $fs-heading-xs;
+    font-size: $fs-heading-s;
   }
 }
 
 @media (min-width: $screen-3xl) {
-  h1 {
-    font-size: $fs-heading-l;
-    font-weight: $fw-regular;
-  }
-
   h2 {
     font-size: $fs-heading-m;
   }

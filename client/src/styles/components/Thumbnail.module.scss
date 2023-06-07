@@ -2,6 +2,15 @@
 
 .thumbnail {
     position: relative;
+    min-width: 0;
+
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+        white-space: nowrap;
+        max-width: 95%;
+    }
 
     .imageContainer {
         position: relative;
@@ -26,11 +35,14 @@
     }
 
     .descriptionContainer {
+        margin-top: 3px;
         .description {
+            line-height: 1;
             width: 80%;
-            color: $grey;
+            color: #c3c4c7;
             font-weight: $fw-regular;
             font-size: $size-300;
+
             display: flex;
             align-items: center;
             gap: 3%;
@@ -56,9 +68,9 @@
 .sliderThumbnail {
     margin-right: $size-300;
     position: relative;
-    aspect-ratio: 5/3;
-    min-width: 240px;
-    min-height: 140px;
+    aspect-ratio: 6/3;
+    min-width: 285px;
+    min-height: 160px;
 
     .imageContainer {
         position: relative;
@@ -93,8 +105,11 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             max-width: 90%;
+            text-shadow: rgba(0, 0, 0, 0.4) 1px 0 1px;
         }
         .description {
+            text-shadow: black 1px 0 5px;
+            opacity: 0.85;
             max-width: 100%;
             min-width: 80%;
             color: white;
@@ -116,17 +131,16 @@
                 }
 
                 path {
-                    fill: $grey;
+                    fill: white;
                 }
             }
         }
     }
 }
 
-@media (min-width: $screen-md) {
+@media (min-width: $screen-sm) {
     .sliderThumbnail {
-        margin-right: $size-400;
-        min-width: 280px;
+        min-width: 350px;
         min-height: 137px;
     }
 }
@@ -140,9 +154,56 @@
 }
 
 @media (min-width: $screen-2xl) {
+    .thumbnail {
+        .descriptionContainer {
+            margin-top: 6px;
+            .description {
+                width: 80%;
+                color: #c3c4c7;
+                font-weight: $fw-regular;
+                font-size: 0.95rem;
+                display: flex;
+                align-items: center;
+                gap: 3%;
+
+                .mediaType {
+                    div {
+                        display: flex;
+
+                        align-items: center;
+                        .icon {
+                            margin-right: 2px;
+                            transform: scale(0.7);
+                        }
+                    }
+
+                    path {
+                        fill: $grey;
+                    }
+                }
+            }
+        }
+    }
+
     .sliderThumbnail {
-        min-width: 470px;
-        min-height: 230px;
+        min-width: 540px;
+        min-height: 270px;
+        .descriptionContainer {
+            .description {
+                font-size: $size-400;
+
+                .mediaType {
+                    div {
+                        display: flex;
+
+                        align-items: center;
+                        .icon {
+                            transform: scale(0.6);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

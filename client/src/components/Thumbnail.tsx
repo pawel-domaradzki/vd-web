@@ -53,6 +53,13 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
     return "unknown date";
   };
 
+  const getMediaType = () => {
+    if (media_type === "movie" || genre === "movies") return "movie";
+    return "tv";
+  };
+
+  const mediaTypeString = getMediaType();
+
   const fullSrcUrl = `${BASE_URL}${backdrop_path || poster_path || ""}`;
 
   const thumbnailVariant = isSliderItem ? sliderThumbnail : thumbnail;
@@ -67,14 +74,14 @@ const Thumbnail: FC<ThumbnailProps> = ({ result, isSliderItem }) => {
           className={image}
         />
         <Bookmark result={result} />
-        <PlayBtn id={id} type={media_type} />
+        <PlayBtn id={id} type={mediaTypeString} />
       </div>
       <div className={descriptionContainer}>
         <div className={description}>
           <div>{releaseFullYear()}</div>
           <>&#8226;</>
           <div className={mediaType}>
-            {media_type === "movie" || genre === "movies" ? (
+            {mediaTypeString === "movie" ? (
               <div>
                 <Movie className={icon} />
                 Movie

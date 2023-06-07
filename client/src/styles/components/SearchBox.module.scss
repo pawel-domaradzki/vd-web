@@ -5,21 +5,23 @@
     margin-inline: auto;
     background-color: none;
     width: 100%;
-    padding: 0 $pd-2;
+    padding-inline: $size-300;
     color: $semi-dark-blue;
     align-items: center;
     flex-grow: 1;
     flex-shrink: 0;
     max-height: 48px;
+    margin-top: 15px;
 
     .searchBtn {
         cursor: pointer;
         background-color: $dark-blue;
         border: none;
+        margin-right: 5px;
         .icon {
             color: $neutral;
-            height: $size-600;
-            padding: $pd-2;
+            height: $size-500;
+
             &:hover {
                 color: $red;
             }
@@ -44,29 +46,30 @@
     }
 }
 
-@media (min-width: $screen-xsm) {
+@media (min-width: $screen-md) {
     .searchBox {
-        padding: 0 $pd-3;
-        margin-right: 10%;
-        width: 90%;
+        padding-inline: $size-500;
+        margin-top: $size-500;
         .searchBtn {
+            margin-right: 12px;
             .icon {
-                height: $size-700;
-                padding: $pd-3;
+                height: $size-500;
             }
         }
     }
 }
 
-@media (min-width: $screen-sm) {
-}
-
-@media (min-width: $screen-md) {
-}
-
-@media (min-width: $screen-lg) {
+@media (min-width: $screen-xl) {
     .searchBox {
-        padding: 0;
-        margin-top: $size-500;
+        width: 90%;
+        margin-right: 10%;
+        font-size: 1.3rem;
+        padding-inline: 0;
+        .searchBtn {
+            margin-right: 15px;
+            .icon {
+                height: $size-600;
+            }
+        }
     }
 }

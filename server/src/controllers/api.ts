@@ -50,7 +50,18 @@ export const videos: RouteHandler = async (req, res) => {
     if (youtubeVideos.length > 0) {
       res.json(youtubeVideos[0]);
     } else {
-      res.status(404).json({ error: "No YouTube videos found" });
+      res.json({
+        iso_639_1: "en",
+        iso_3166_1: "US",
+        name: "The best upcoming movies",
+        key: "MnLjYJyrNc0&ab",
+        site: "YouTube",
+        size: 1080,
+        type: "Trailer",
+        official: false,
+        published_at: "2023-05-26T08:45:47.000Z",
+        id: "fallbackxyz",
+      });
     }
   } catch (error) {
     console.error("Error:", error);

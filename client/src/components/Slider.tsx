@@ -35,7 +35,6 @@ const Slider = ({ results }: Results) => {
       const x = event.pageX - sliderRef.current.offsetLeft;
       const walk = (x - startX) * 1.2;
       sliderRef.current.scrollLeft = scrollLeft - walk;
-      console.log(walk);
     }
   };
 

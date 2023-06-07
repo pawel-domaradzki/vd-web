@@ -8,13 +8,19 @@ import { Maybe, ResultsResponse } from "@/utils/types";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export default function Home({ results, trendingToday, genre }: ResponseProps) {
+  const setHeadingTitle = () => {
+    if (genre === "movies") return "Movies";
+    if (genre == "tv") return "TV Series";
+    return "Recommended for you";
+  };
+
   return (
     <>
       <SearchBox />
 
       {trendingToday && !genre ? <Slider results={trendingToday} /> : <></>}
 
-      {results && <Results results={results} title={`Recommended for you`} />}
+      {results && <Results results={results} title={setHeadingTitle()} />}
     </>
   );
 }

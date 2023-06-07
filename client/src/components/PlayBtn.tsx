@@ -12,6 +12,7 @@ const PlayBtn = ({ id, type }: PlayButtonProps) => {
 
   const handlePlay = async () => {
     const videosQuery = getVideo(id, type);
+    console.log(id, type);
 
     if (!videosQuery) return;
 
@@ -47,8 +48,8 @@ const PlayBtn = ({ id, type }: PlayButtonProps) => {
             url={embedUrl}
             controls={true}
             playing={true}
-            width="100%"
-            height="100%"
+            width="89%"
+            height="89%"
           />
         </div>
       )}
